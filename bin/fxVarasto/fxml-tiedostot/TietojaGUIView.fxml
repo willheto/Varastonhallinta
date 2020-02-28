@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane layoutX="157.0" layoutY="69.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="tietoNaytto" minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="598.0" style="-fx-background-color: #427cb0;">
+               <children>
+                  <Label layoutX="137.0" layoutY="21.0" prefHeight="80.0" prefWidth="325.0" text="VARASTONHALLINTA" textFill="WHITE">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="229.0" layoutY="126.0" prefHeight="32.0" prefWidth="140.0" text="Henri Willman" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="271.0" layoutY="101.0" text="Versio 0.2" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

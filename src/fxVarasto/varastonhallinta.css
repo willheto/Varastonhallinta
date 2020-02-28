@@ -1,0 +1,54 @@
+.keskim {
+	-fx-background-color: #83a2c9;
+
+}
+.oikea {
+	-fx-background-color: #83a2c9;
+
+}
+.vasen {
+	-fx-background-color: #83a2c9;
+
+}
+
+.valiaikainen {
+		-fx-border-color: black;
+}
+
+.tuotteet {
+	-fx-border-color: black;
+
+}
+
+.varastonkorjaukset {
+	-fx-border-color: black;
+	-fx-background-color: #6f9dcb;
+
+}
+
+.info-palkki {
+	-fx-background-color: #457bb0;
+	-fx-border-color: black;
+}
+
+.info-palkki-haku {
+	-fx-background-color: #18396f;
+	-fx-border-color: black;
+}
+
+.haku2 {
+	-fx-border-color: black;
+	-fx-background-color: #427cb0;
+}
+
+.ala-palkki{
+		-fx-border-color: black;
+		-fx-border-width: 1px 0px 0px 0px; 
+		-fx-background-color: #6f9dcb;
+}
+
+.menu {
+		-fx-border-color: black;
+		-fx-border-width: 0px;
+		-fx-background-color: #6f9dcb;
+}

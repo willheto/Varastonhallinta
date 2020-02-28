@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fi.jyu.mit.fxgui.ModalController">
+   <children>
+      <SplitPane dividerPositions="0.8366834170854272" layoutX="157.0" layoutY="69.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="aloitusnaytto1" minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="598.0" style="-fx-background-color: #427cb0;">
+               <children>
+                  <Label alignment="CENTER" layoutX="137.0" layoutY="21.0" prefHeight="80.0" prefWidth="325.0" text="VARASTONHALLINTA" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="229.0" layoutY="126.0" prefHeight="32.0" prefWidth="140.0" text="Henri Willman" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="271.0" layoutY="101.0" text="Versio 0.2" textAlignment="CENTER" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="10.0" prefWidth="598.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="5.0" text="Anna varaston nimi:">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="227.0" layoutY="12.0" prefHeight="25.0" prefWidth="248.0" />
+                  <Button layoutX="487.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDefaultCancel" text="Cancel" />
+                  <Button layoutX="551.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDefaultOK" text="OK" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
