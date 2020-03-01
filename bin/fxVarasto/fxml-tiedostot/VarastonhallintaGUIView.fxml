@@ -6,44 +6,19 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxVarasto.VarastonhallintaGUIController">
-   <top>
-      <MenuBar styleClass="menu" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Tiedosto">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Avaa..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTulosta" text="Tulosta..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Tuote">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleLisaaTuote" text="Lisää tuote..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaTuote" text="Poista tuote..." />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Apua">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleTietoja" text="Tietoja..." />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../varastonhallinta.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxVarasto.VarastonhallintaGUIController">
    <center>
       <SplitPane dividerPositions="0.21601941747572814, 0.5" prefHeight="468.0" prefWidth="911.0" BorderPane.alignment="CENTER">
          <items>
@@ -148,7 +123,15 @@
                <bottom>
                   <StackPane prefHeight="35.0" prefWidth="228.0" styleClass="ala-palkki" BorderPane.alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleMuokkaa" text="Muokkaa" StackPane.alignment="CENTER_LEFT">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleVarastonkorjaus" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+                           <image>
+                              <Image url="@../../../ikonit/f10.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#handleMuokkaa" styleClass="varastonkorjausNappi" text="    F8 Muokkaa" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
                            <StackPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin>
@@ -184,11 +167,18 @@
                <bottom>
                   <StackPane prefHeight="35.0" prefWidth="409.0" styleClass="ala-palkki" BorderPane.alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleVarastonkorjaus" text="Varastonkorjaus" StackPane.alignment="CENTER_LEFT">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleVarastonkorjaus" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+                           <image>
+                              <Image url="@../../../ikonit/f10.png" />
+                           </image>
                            <StackPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin>
-                        </Button>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#handleVarastonkorjaus" styleClass="varastonkorjausNappi" text="    F10 Varastonkorjaus" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+                           <StackPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </StackPane.margin></Button>
                      </children>
                   </StackPane>
                </bottom>
@@ -196,4 +186,74 @@
          </items>
       </SplitPane>
    </center>
+   <top>
+      <StackPane prefHeight="62.0" prefWidth="1300.0" styleClass="ylinPalkki" BorderPane.alignment="CENTER">
+         <children>
+
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+               <image>
+                  <Image url="@../../../ikonit/help.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="5.0" right="10.0" top="5.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+               <image>
+                  <Image url="@../../../ikonit/ulos.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="5.0" right="110.0" top="5.0" />
+               </StackPane.margin>
+            </ImageView>
+            <Button mnemonicParsing="false" onAction="#handleTietoja" prefHeight="66.0" prefWidth="57.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;F1 Ohje" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#handleAvaa" prefHeight="66.0" prefWidth="138.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;Ctrl+F9 Varastonvaihto" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+               <StackPane.margin>
+                  <Insets right="62.0" />
+               </StackPane.margin>
+            </Button>
+            <Line endX="-100.70710754394531" endY="45.29289245605469" startX="-100.0" stroke="#4d4d4d" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="200.0" top="5.0" />
+               </StackPane.margin>
+            </Line>
+            <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+               <image>
+                  <Image url="@../../../ikonit/lisaa.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="15.0" top="5.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+               <image>
+                  <Image url="@../../../ikonit/poista.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="100.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </ImageView>
+                        <Button mnemonicParsing="false" onAction="#handlePoistaTuote" prefHeight="69.0" prefWidth="80.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;Poista tuote" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+               <StackPane.margin>
+                  <Insets left="83.0" />
+               </StackPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleLisaaTuote" prefHeight="68.0" prefWidth="74.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;Lisää tuote" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </Button>
+            <Line endX="-100.70710754394531" endY="45.29289245605469" startX="-100.0" stroke="#4d4d4d" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="162.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Line>
+            <Label text="Varastonhallinta v. 0.5" textFill="WHITE">
+               <font>
+                  <Font name="Eras Medium ITC" size="31.0" />
+               </font>
+            </Label>
+            
+         </children></StackPane>
+   </top>
 </BorderPane>

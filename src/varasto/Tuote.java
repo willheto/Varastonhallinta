@@ -14,7 +14,7 @@ import java.io.PrintStream;
  * - osaa muuttaa palkeilla paloitellut merkkijonot  - TODO
  * erillisiksi tiedoiksi(1|sohva sopiva|...) -> 1, sohva sopiva, ...                          
  * - osaa antaa merkkijonona tietyn kentän tiedot   - TEHTY  
- * - osaa laittaa merkkijono kentän tiedoksi       - TODO 
+ * - osaa laittaa merkkijono kentän tiedoksi       - TEHTY
  * - osaa kommunikoida varastonkorjauksen kanssa,   - TODO
  *  kun tuotteen tilaksi merkataan poistunut        
  */
@@ -84,10 +84,9 @@ public class Tuote {
     // <-------------------------------------------------------------------------------------------------------------->
     // ALAPUOLELLA METODEJA
 
-
     /**
      * @param args ei käytössä
-     * Pääohjelma testaamista varten
+     * Pääohjelma tuotteet-luokan testaamista varten
      */
     public static void main(String[] args) {
         Tuote tuote = new Tuote();
@@ -114,10 +113,19 @@ public class Tuote {
                 + "\n");
 
     }
+    
+    
+    /**
+     * Muuttaa varastoarvoa tuotteesta
+     * @param muutos muutoksen määrä(esim -5 tai 7)
+     */
+    public void muutaVarastoarvoa(int muutos) {
+        this.varastoarvo += muutos;
+    }
 
 
     /**
-     * Asetta tuotteelle tiedot
+     * Asettaa tuotteelle tiedot
      * @example
      * <pre name="test">
      * Tuote sanky = new Tuote();
@@ -128,7 +136,6 @@ public class Tuote {
      * sanky3.aseta();
      * sanky3.getTuotenumero() === sanky2.getTuotenumero() + 1;
      * sanky2.getTuotenumero() === sanky.getTuotenumero() + 1;
-     * 
      * </pre>
      */
     public void aseta() {
@@ -142,9 +149,7 @@ public class Tuote {
     /**
      * Täyttää tiedot jos tiedot menevät läpi oikeellisuustarkastuksesta
      */
-    private void taytaTiedot(String ehdokasNimi, String ehdokasStatus,
-            int ehdokasVarastoarvo, int ehdokasVarastokapasiteetti,
-            int ehdokasKollit) {
+    private void taytaTiedot(String ehdokasNimi, String ehdokasStatus, int ehdokasVarastoarvo, int ehdokasVarastokapasiteetti, int ehdokasKollit) {
         nimi = ehdokasNimi;
         varastoarvo = ehdokasVarastoarvo;
         varastokapasiteetti = ehdokasVarastokapasiteetti;
@@ -155,8 +160,6 @@ public class Tuote {
 
     /**
      * Tekee oikeellisuustarkastuksen
-     * TODO: tee vielä tarkastus, ettei tuotenumero tai nimi ole jo käytössä! Varastoarvo ei saa myöskään ylittää kapasiteettia!
-     * TODO: kirjoita vielä noille testit!!!
      * @param ehdokasNimi testattava nimi
      * @param ehdokasStatus testattava status
      * @param ehdokasVarastoarvo testattava varastoarvo
@@ -200,9 +203,13 @@ public class Tuote {
         }
 
         for (int i = 0; i < luvut.length; i++) {
-            if (luvut[i] == 0) {
+            if (luvut[i] < 0) {
                 return;
             }
+        }
+        
+        if(ehdokasStatus != "Aktiivinen" && ehdokasStatus != "Poistunut") {
+            return;
         }
         taytaTiedot(ehdokasNimi, ehdokasStatus, ehdokasVarastoarvo,
                 ehdokasVarastokapasiteetti, ehdokasKollit);

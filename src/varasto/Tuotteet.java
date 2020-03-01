@@ -8,7 +8,7 @@ package varasto;
  * @version 17.2.2020
  * Tuotteet-luokka
  * - osaa lisätä ja poistaa tuotteita
- * - lukee ja kirjoittaa tietyn tuotteen tiedostoon käyttämällä avustajia 
+ * - lukee ja kirjoittaa tietyn tuotteen tiedostoon käyttämällä avustajia -TODO
  * - osaa etsiä ja lajitella 
  */
 public class Tuotteet {
@@ -38,6 +38,8 @@ public class Tuotteet {
     public int getLukumaara() {
         return lukumaara;
     }
+    
+   
     
    
     //                                  TÄMÄN YLÄPUOLELLA ATTRIBUUTIT JA GETTERIT
@@ -99,5 +101,16 @@ public class Tuotteet {
         lukumaara++;
         
     }
+    
+    
+    /**
+     * Muuttaa tuotteen varastoarvoa
+     * @param tuote tuote jonka varastoarvoa muutetaan
+     * @param muutos muutoksen määrä
+     */
+    public void muutaVarastoarvoa(Tuote tuote, int muutos) {
+        tuote.muutaVarastoarvoa(muutos);
+    }
+
 
 }

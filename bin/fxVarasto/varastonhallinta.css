@@ -52,3 +52,30 @@
 		-fx-border-width: 0px;
 		-fx-background-color: #6f9dcb;
 }
+
+.varastonkorjausNappi {
+	-fx-background-color: transparent;
+}
+
+.varastonkorjausNappi:hover{
+	-fx-background-color: #457bb0;
+	-fx-opacity: 0.5;
+}
+
+.ylinPalkki {
+	-fx-background-color: #6f9dcb;
+}
+
+.ylapalkin-ikonit {
+	-fx-background-color: transparent;
+}
+
+.ylapalkin-ikonit:hover {
+	-fx-background-color: #457bb0;
+	-fx-opacity: 0.5;
+}
+
+.ala-palkki-modaaliset {
+		-fx-border-color: black;
+		-fx-background-color: #6f9dcb;
+}
