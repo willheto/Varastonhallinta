@@ -125,7 +125,7 @@
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleVarastonkorjaus" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                            <image>
-                              <Image url="@../../../ikonit/f10.png" />
+                              <Image url="@ikonit/f10.png" />
                            </image>
                            <StackPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -169,7 +169,7 @@
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleVarastonkorjaus" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                            <image>
-                              <Image url="@../../../ikonit/f10.png" />
+                              <Image url="@ikonit/f10.png" />
                            </image>
                            <StackPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -192,7 +192,7 @@
 
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                <image>
-                  <Image url="@../../../ikonit/help.png" />
+                  <Image url="@ikonit/help.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="20.0" left="5.0" right="10.0" top="5.0" />
@@ -200,7 +200,7 @@
             </ImageView>
             <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                <image>
-                  <Image url="@../../../ikonit/ulos.png" />
+                  <Image url="@ikonit/ulos.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="20.0" left="5.0" right="110.0" top="5.0" />
@@ -219,7 +219,7 @@
             </Line>
             <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                <image>
-                  <Image url="@../../../ikonit/lisaa.png" />
+                  <Image url="@ikonit/lisaa.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="20.0" left="15.0" top="5.0" />
@@ -227,7 +227,7 @@
             </ImageView>
             <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                <image>
-                  <Image url="@../../../ikonit/poista.png" />
+                  <Image url="@ikonit/poista.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="20.0" left="100.0" right="5.0" top="5.0" />

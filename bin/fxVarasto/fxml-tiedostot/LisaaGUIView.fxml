@@ -135,7 +135,7 @@
          <children>
             <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultOK" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                <image>
-                  <Image url="@../../../ikonit/f10.png" />
+                  <Image url="@ikonit/f10.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -148,7 +148,7 @@
             </Button>
             <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultCancel" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../ikonit/f10.png" />
+                  <Image url="@ikonit/f10.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="60.0" top="5.0" />

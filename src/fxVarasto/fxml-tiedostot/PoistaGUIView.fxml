@@ -37,7 +37,7 @@
             </Label>
             <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                <image>
-                  <Image url="@../../../ikonit/kysymys.png" />
+                  <Image url="@ikonit/kysymys.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -54,7 +54,7 @@
          <children>
             <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultOK" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                <image>
-                  <Image url="@../../../ikonit/f10.png" />
+                  <Image url="@ikonit/f10.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -67,7 +67,7 @@
             </Button>
             <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultCancel" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../ikonit/f10.png" />
+                  <Image url="@ikonit/f10.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="140.0" top="5.0" />
