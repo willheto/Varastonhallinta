@@ -11,6 +11,7 @@ import fi.jyu.mit.fxgui.TextAreaOutputStream;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import varasto.TaynnaException;
@@ -28,15 +29,17 @@ public class VarastonhallintaGUIController implements Initializable {
     private String varastonNimi = "Kuopio";
 
     @FXML
+    private Label varastonNimiPalkissa = new Label();
+    @FXML
     private TextField haku;
     @FXML
     private ListChooser<Tuote> tuotteet;
     @FXML
     private TextArea valiaikainenTieto;
-
     @FXML
     private void handleHakeminen() {
         Dialogs.showMessageDialog("Ei osata hakea.");
+
     }
 
 
@@ -52,6 +55,7 @@ public class VarastonhallintaGUIController implements Initializable {
                 VarastonhallintaGUIController.class
                         .getResource("fxml-tiedostot/NimenKyselyGUIView.fxml"),
                 "Avaa", null, "");
+        this.varastonNimiPalkissa.setText("Varasto: Kuopio");
         return true;
     }
 
@@ -81,7 +85,7 @@ public class VarastonhallintaGUIController implements Initializable {
 
 
     @FXML
-    private void handleMuokkaa() {
+    private void handleMuokkaa() {     
         ModalController.showModal(
                 VarastonhallintaGUIController.class
                         .getResource("fxml-tiedostot/MuokkausGUIView.fxml"),
@@ -210,7 +214,6 @@ public class VarastonhallintaGUIController implements Initializable {
      */
     public void setVarasto(Varasto varasto) {
         this.varasto = varasto;
-
     }
 
 }

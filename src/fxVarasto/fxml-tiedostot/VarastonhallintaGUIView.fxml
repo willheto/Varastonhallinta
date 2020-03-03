@@ -256,4 +256,15 @@
             
          </children></StackPane>
    </top>
+   <bottom>
+      <StackPane prefHeight="25.0" prefWidth="1300.0" styleClass="alin-palkki" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="varastonNimiPalkissa" text="&quot;&quot;" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="10.0" />
+               </StackPane.margin>
+            </Label>
+         </children>
+      </StackPane>
+   </bottom>
 </BorderPane>
