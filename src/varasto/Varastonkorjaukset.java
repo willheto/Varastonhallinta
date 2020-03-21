@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * @author henri
- * @version 29 Feb 2020
+ * @version 21.03.2020
  * Varastonkorjaukset-luokka, joka pitää huolta kaikista varastonkorjauksista.
  */
 public class Varastonkorjaukset {
@@ -49,6 +49,20 @@ public class Varastonkorjaukset {
     /**
      * Lisää yksittäisen varastonkorjaukset korjauksiin
      * @param korjaus korjaus, joka lisätään
+     * @example
+     * <pre name="test">
+     * Varastonkorjaukset varastonkorjaukset = new Varastonkorjaukset();
+     * varastonkorjaukset.getLukumaara() === 0;
+     * Varastonkorjaus korjaus = new Varastonkorjaus();
+     * Varastonkorjaus korjaus2 = new Varastonkorjaus();
+     * korjaus.alusta(1001, 2, "Varastonkorjaus");
+     * korjaus2.alusta(1000, 3, "Varastonkorjaus");
+     * varastonkorjaukset.lisaa(korjaus);
+     * varastonkorjaukset.lisaa(korjaus2);
+     * varastonkorjaukset.getLukumaara() === 2;
+     * varastonkorjaukset.getAlkiot(0) === korjaus;
+     * varastonkorjaukset.getAlkiot(1) === korjaus2;
+     * </pre>
      */
     public void lisaa(Varastonkorjaus korjaus) {
         varastonkorjaukset.add(korjaus);

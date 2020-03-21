@@ -5,7 +5,7 @@ package varasto;
 
 /**
  * @author henri
- * @version 17.2.2020
+ * @version 21.03.2020
  * Tuotteet-luokka
  * - osaa lisätä ja poistaa tuotteita
  * - lukee ja kirjoittaa tietyn tuotteen tiedostoon käyttämällä avustajia -TODO
@@ -107,6 +107,36 @@ public class Tuotteet {
      * Muuttaa tuotteen varastoarvoa
      * @param tuote tuote jonka varastoarvoa muutetaan
      * @param muutos muutoksen määrä
+     * @example
+     * <pre name="test">
+     * Tuotteet tuotteet = new Tuotteet();
+     * Tuote tuote = new Tuote();
+     * tuote.getVarastoarvo() === 0;
+     * tuotteet.muutaVarastoarvoa(tuote, -2);
+     * tuote.getVarastoarvo() === -2;
+     * tuotteet.muutaVarastoarvoa(tuote, 2);
+     * tuote.getVarastoarvo() === 0;
+     * try {
+     * tuotteet.lisaa(tuote);
+     * } catch(Exception e) {
+     * System.out.println("ei toimi");
+     * }
+     * tuotteet.getLukumaara() === 1;
+     * tuotteet.getAlkiot(0) === tuote;
+     * Tuote tuote2 = new Tuote();
+     * Tuote tuote3 = new Tuote();
+     * Tuote tuote4 = new Tuote();
+     * Tuote tuote5 = new Tuote();
+     * try {
+     * tuotteet.lisaa(tuote2);
+     * tuotteet.lisaa(tuote3);
+     * tuotteet.lisaa(tuote4);
+     * tuotteet.lisaa(tuote5);
+     * } catch(Exception e) {
+     * System.out.println("ei toimi");
+     * }
+     * tuotteet.getLukumaara() === 5;
+     * </pre>
      */
     public void muutaVarastoarvoa(Tuote tuote, int muutos) {
         tuote.muutaVarastoarvoa(muutos);

@@ -2,7 +2,7 @@ package varasto;
 
 /**
  * @author henri
- * @version 17.2.2020
+ * @version 21.03.2020
  * Poikkeusluokka tietorakenteesta aiheutuville poikkeuksille
  */
 public class TaynnaException extends Exception {

@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 /**
  * @author henri
- * @version 27 Feb 2020
+ * @version 21.03.2020
  * Tapahtumanhallinta muokkaus-näkymään.
  */
 public class MuokkausController {

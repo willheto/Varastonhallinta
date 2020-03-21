@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 /**
  * @author henri
- * @version 29 Feb 2020
+ * @version 21.03.2020
  * Varastonkorjaus-luokka
  */
 public class Varastonkorjaus {

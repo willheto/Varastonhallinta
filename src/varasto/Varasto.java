@@ -3,7 +3,7 @@ package varasto;
 /**
  * Varasto-luokka
  * @author henri
- * @version 18.2.2020
+ * @version 21.03.2020
  *
  */
 public class Varasto {
@@ -120,14 +120,14 @@ public class Varasto {
      * tyyny.aseta();
      * tyyny2.aseta();
      * tyyny3.aseta();
-     * tuotteet.getTuotteita() === 0;
-     * varasto.lisaa(tyyny); kerho.getJasenia() === 1;
-     * varasto.lisaa(tyyny2); kerho.getJasenia() === 2;
-     * varasto.lisaa(tyyny3); kerho.getJasenia() === 3;
+     * varasto.getTuotteita() === 0;
+     * varasto.lisaa(tyyny); varasto.getTuotteita() === 1;
+     * varasto.lisaa(tyyny2); varasto.getTuotteita() === 2;
+     * varasto.lisaa(tyyny3); varasto.getTuotteita() === 3;
      * varasto.annaTuote(0) === tyyny;
      * varasto.annaTuote(1) === tyyny2;
      * varasto.annaTuote(2) === tyyny3;
-     * varasto.annaTuote(3) === tyyny; #THROWS IndexOutOfBoundsException
+     * varasto.annaTuote(3) === null;
      */
     public void lisaa(Tuote tuote) throws TaynnaException {
         tuotteet.lisaa(tuote);

@@ -21,7 +21,7 @@ import varasto.Varastonkorjaus;
 
 /**
  * @author henri
- * @version 27.2.2020
+ * @version 21.03.2020
  * Käyttöliittymän tapahtumanhallinta-luokka.
  */
 public class VarastonhallintaGUIController implements Initializable {

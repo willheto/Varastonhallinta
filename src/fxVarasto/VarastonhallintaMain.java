@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 
 /**
  * @author henri
- * @version 27.2.2020
+ * @version 21.03.2020
  * Pääohjelma varastonhallinnalle
  */
 public class VarastonhallintaMain extends Application {

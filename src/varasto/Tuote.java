@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 /**
  * @author henri
- * @version 17.2.2020
+ * @version 21.03.2020
  * Tuote-luokka
  * - Tietää tuotteiden tiedot ja osaa tarkastaa, ettei väärään kenttään syötetä 
  * väärää tietoa. (esim. kirjaimia varastoaarvoon)  - TEHTY
