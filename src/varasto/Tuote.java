@@ -88,6 +88,15 @@ public class Tuote {
     public int getSeuraavaTuoteNumero() {
         return seuraavaTuoteNumero;
     }
+    
+    
+    /**
+     * Asettaa luetun perusteella uuden seuraavan tuotenumeron
+     * @param numero mikä asetetaan
+     */
+    public void setSeuraavaTuoteNumero(int numero) {
+        seuraavaTuoteNumero = numero;
+    }
 
     // TÄMÄN YLÄPUOLELLA VAIN GETTERIT JA ATTRIBUUTIT
     // <-------------------------------------------------------------------------------------------------------------->
@@ -152,6 +161,20 @@ public class Tuote {
 
         oikeellisuusTarkistus(ehdokasNimi, seuraavaTuoteNumero, 0, kapasi, ehdokasKollit, ehdokasStatus);
         seuraavaTuoteNumero++;
+
+    }
+    
+    
+    /**
+     * @param ehdokasNimi tuotteen nimi jota tarjotaan
+     * @param kapasi tarjottavan tuotteen kapasiteetti varastossa
+     * @param ehdokasKollit tuotteen kollit
+     * @param ehdokasStatus tuotteen status
+     * @param nolla kuormituksen apumuuttuja
+     */
+    public void aseta(String ehdokasNimi, int kapasi, int ehdokasKollit, String ehdokasStatus, int nolla) {
+
+        oikeellisuusTarkistus(ehdokasNimi, this.tuotenumero, this.varastoarvo, kapasi, ehdokasKollit, ehdokasStatus);
 
     }
 

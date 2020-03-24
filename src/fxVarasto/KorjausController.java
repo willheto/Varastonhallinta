@@ -13,14 +13,14 @@ import javafx.scene.control.TextField;
 public class KorjausController implements ModalControllerInterface<String> {
 
     @FXML
-    private ComboBoxChooser <String> selitys;
-    
+    private ComboBoxChooser<String> selitys;
+
     @FXML
     private Label virhe;
 
     @FXML
     private TextField maara;
-    private StringBuilder vastaus = null;
+    private String vastaus = "";
 
     @FXML
     private void handleDefaultOK() {
@@ -44,14 +44,15 @@ public class KorjausController implements ModalControllerInterface<String> {
     public void setDefault(String oletus) {
         //
     }
-    
+
+
     /*
      * Tarkistaa, että määrään on sijoitettu luku
      */
     private void oikeellisuusTarkistus() {
         try {
             Integer.valueOf(maara.getText().toString());
-            vastaus = new StringBuilder(selitys.getSelectedText() + " " + maara.getText());
+            vastaus = (selitys.getSelectedText() + " " + maara.getText());
             ModalController.closeStage(virhe);
         } catch (Exception e) {
             virhe.setText("Määrän tulee olla numero!");

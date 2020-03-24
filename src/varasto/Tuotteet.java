@@ -184,7 +184,11 @@ public class Tuotteet {
             tiedosto.mkdir();
         try (PrintStream fo = new PrintStream(
                 new FileOutputStream(nimi + "/tuotteet.dat", false))) {
-
+            try {
+                fo.println(tuotteetTaulukossa[0].getSeuraavaTuoteNumero());
+            } catch (Exception e) {
+                fo.println(1);
+            }
             for (int i = 0; i < lukumaara; i++) {
                 tuotteetTaulukossa[i].tulostaTiedot(fo);
             }
@@ -204,7 +208,10 @@ public class Tuotteet {
         try (Scanner fi = new Scanner(new FileInputStream(
                 new File(varastonNimi + "/tuotteet.dat")))) {
 
+            String numero = fi.nextLine().toString();
+
             int montakoTuotetta = 0;
+
             while (fi.hasNextLine()) {
                 montakoTuotetta++;
                 System.out.println(fi.nextLine());
@@ -216,6 +223,7 @@ public class Tuotteet {
             fi.close();
             try (Scanner fi2 = new Scanner(new FileInputStream(
                     new File(varastonNimi + "/tuotteet.dat")))) {
+                fi2.nextLine();
 
                 int apuindeksi = 0;
                 while (fi2.hasNextLine()) {
@@ -230,6 +238,9 @@ public class Tuotteet {
                             Mjonot.erota(rivi, '|'));
                     tuotteetTaulukossa[apuindeksi] = tuote;
                     apuindeksi++;
+
+                    tuotteetTaulukossa[0]
+                            .setSeuraavaTuoteNumero(Integer.valueOf(numero));
 
                 }
                 fi2.close();

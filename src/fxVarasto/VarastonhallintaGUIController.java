@@ -87,10 +87,7 @@ public class VarastonhallintaGUIController implements Initializable {
 
     @FXML
     private void handleMuokkaa() {
-        ModalController.showModal(
-                VarastonhallintaGUIController.class
-                        .getResource("fxml-tiedostot/MuokkausGUIView.fxml"),
-                "Muokkaa", null, "");
+        muokkaa();
     }
 
 
@@ -149,6 +146,27 @@ public class VarastonhallintaGUIController implements Initializable {
     
     
     /**
+     * Muokkaa tuotetta
+     */
+    public void muokkaa() {
+        Tuote tuote = tuotteet.getSelectedObject();
+
+        String vastaus = ModalController.showModal(
+                VarastonhallintaGUIController.class
+                        .getResource("fxml-tiedostot/MuokkausGUIView.fxml"),
+                "Muokkaa", null, "");
+        if(vastaus.contentEquals("")) return;
+        StringBuilder tiedot = new StringBuilder(vastaus);
+        
+        tuote.aseta(Mjonot.erota(tiedot,'|').trim(), Mjonot.erotaEx(tiedot, '|', 0), Mjonot.erotaEx(tiedot,'|', 0), tiedot.toString().trim(), 0);
+        alustaLista();
+        tyhjaa();
+        tallenna(varastonNimi);
+        
+    }
+    
+    
+    /**
      * Poistaa tuotteen varastosta
      */
     public void poistaTuote() {
@@ -165,6 +183,7 @@ public class VarastonhallintaGUIController implements Initializable {
             varasto.poistaTuote(tuote);
             tallenna(varastonNimi);
             alustaLista();
+            tyhjaa();
         }
         
     }
@@ -226,6 +245,8 @@ public class VarastonhallintaGUIController implements Initializable {
                         VarastonhallintaGUIController.class.getResource(
                                 "fxml-tiedostot/VarastonkorjausGUIView.fxml"),
                         "Varastonkorjaus", null, "");
+        
+        if(tiedot.contentEquals("")) return;
         StringBuilder vastaus = new StringBuilder(tiedot);
         Tuote tuote = tuotteet.getSelectedObject();
 
