@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="164.0" prefWidth="304.0" styleClass="vasen" stylesheets="@../varastonhallinta.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fi.jyu.mit.fxgui.ModalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="164.0" prefWidth="304.0" styleClass="vasen" stylesheets="@../varastonhallinta.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxVarasto.VarastonNimiController">
    <top>
       <StackPane prefHeight="35.0" prefWidth="314.0" styleClass="info-palkki-haku" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -45,7 +45,7 @@
                         <Insets bottom="20.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField GridPane.columnIndex="1">
+                  <TextField fx:id="textVastaus" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>

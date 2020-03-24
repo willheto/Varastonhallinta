@@ -55,9 +55,6 @@ public class Varasto {
         Tuote tyyny = new Tuote();
         Tuote tyyny2 = new Tuote();
         Tuote tyyny3 = new Tuote();
-        tyyny.aseta();
-        tyyny2.aseta();
-        tyyny3.aseta();
 
         try {
             varasto.lisaa(tyyny);
@@ -76,7 +73,7 @@ public class Varasto {
         }
 
         Varastonkorjaus korjaus = new Varastonkorjaus();
-        korjaus.alusta(1, 2, "Varastonkorjaus");
+
         varasto.lisaaKorjaus(korjaus);
 
         for (int i = 0; i < varasto.getTuotteita(); i++) {
@@ -131,5 +128,51 @@ public class Varasto {
      */
     public void lisaa(Tuote tuote) throws TaynnaException {
         tuotteet.lisaa(tuote);
+    }
+
+
+    /**
+     * Tallentaa tiedostot
+     * @param nimi mihin varaston tallennetaan
+     */
+    public void tallenna(String nimi) {
+        
+        try {
+            tuotteet.tallenna(nimi);
+            varastonkorjaukset.tallenna(nimi);
+        } catch (TaynnaException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //varastonkorjaukset.tallenna();
+    }
+
+
+    /**
+     * @param varastonNimi varasto jonka tiedot luetaan
+     * Lukee varaston tuotteet ja niiden varastonkorjaukset
+     */
+    public void lue(String varastonNimi) {
+        
+        tuotteet.lue(varastonNimi);
+        varastonkorjaukset.lue(varastonNimi);
+    }
+
+
+    /**
+     * Pyyhkii tuotteet ja varastonkorjaukset tyhjiksi kun varastoa vaihdetaan
+     */
+    public void pyyhi() {
+        this.tuotteet = new Tuotteet();
+        this.varastonkorjaukset = new Varastonkorjaukset();    
+    }
+
+
+    /**
+     * @param tuote poistettava tuote
+     * Poistaa tuotteen varastosta
+     */
+    public void poistaTuote(Tuote tuote) {
+        tuotteet.poistaTuote(tuote);      
     }
 }

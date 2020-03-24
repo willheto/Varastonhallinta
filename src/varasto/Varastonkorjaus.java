@@ -27,6 +27,14 @@ public class Varastonkorjaus {
         return tuotenumero;
     }
 
+    
+    /**
+     * @return varastonkorjauksien määrän
+     */
+    public int getKenttia() {
+        return 4;
+    }
+    
 
     /**
      * @return vkid
@@ -71,11 +79,7 @@ public class Varastonkorjaus {
             
         Varastonkorjaus korjaus = new Varastonkorjaus();
         Varastonkorjaus korjaus2 = new Varastonkorjaus();
-
-        korjaus.alusta(1001, 2, "Varastonkorjaus");
-        korjaus2.alusta(1001, 2, "Varastonkorjaus");
-
-        
+      
         korjaus.tulosta(System.out);
         korjaus2.tulosta(System.out);
 
@@ -87,18 +91,14 @@ public class Varastonkorjaus {
      * @param os mihin tulostetaan
      */
     public void tulosta(PrintStream os) {
-        os.println("<--------------------------------------------------------->\n" +"Päivämäärä: " + this.getPaiva() + "\n" +
-                            "Muutos: " + this.getMuutos() + "\n" +
-                            "Selitys: " + this.getTapahtuma() +
-                            "\n<--------------------------------------------------------->\n");
- 
+        os.println(paiva + "|" + tuotenumero + "|" + tapahtuma + "|" + muutos + "|");
     }
 
 
     /**
      * Alustaa varastonkorjauksen tiedot
-     * @param tapahtuma2 miksi varastoa korjattiin
      * @param muutos2 montako lisättiin tai poistettiin
+     * @param tapahtuma2 miksi varastoa korjattiin
      * @param tuotenumero2 korjatun tuotteen tuotenumero
      * @example
      * <pre name="test">
@@ -118,7 +118,7 @@ public class Varastonkorjaus {
      * korjaus2.getVkid() === 2;
      * </pre>
      */
-    public void alusta(int tuotenumero2, int muutos2, String tapahtuma2) {        
+    public void alusta(int tuotenumero2, String tapahtuma2, int muutos2) {        
         
         //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         //LocalDate paivamaara = LocalDate.now();
@@ -130,5 +130,23 @@ public class Varastonkorjaus {
         this.vkid = seuraavaVkid;
 
         seuraavaVkid++;
+    }
+
+
+    /**
+     * @param paiva2 päivämäärä korjaukselle
+     * @param tuotenumero2 korjattavan tuotteen tuotenumero
+     * @param tapahtuma2 miksi korjattiin eli syykoodi
+     * @param muutos2 montako korjattiin (+ tai -)
+     * Asettaa korjaukselle tiedot
+     */
+    public void alusta(String paiva2, Integer tuotenumero2, String tapahtuma2, Integer muutos2) {
+        this.tuotenumero = tuotenumero2;
+        this.muutos = muutos2;
+        this.tapahtuma = tapahtuma2;
+        this.paiva = paiva2;
+        this.vkid = seuraavaVkid;
+
+        seuraavaVkid++;      
     }
 }

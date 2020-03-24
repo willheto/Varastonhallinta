@@ -33,7 +33,7 @@ public class VarastonhallintaMain extends Application {
             varastoCtrl.setVarasto(varasto);
 
             primaryStage.show();
-            if (!varastoCtrl.handleAvaa())
+            if (!varastoCtrl.avaa())
                 Platform.exit();
         } catch (Exception e) {
             e.printStackTrace();

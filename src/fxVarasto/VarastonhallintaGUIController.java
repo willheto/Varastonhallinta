@@ -1,18 +1,17 @@
 package fxVarasto;
 
-import java.io.PrintStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ListChooser;
 import fi.jyu.mit.fxgui.ModalController;
-import fi.jyu.mit.fxgui.TextAreaOutputStream;
+import fi.jyu.mit.fxgui.StringGrid;
+import fi.jyu.mit.ohj2.Mjonot;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import varasto.TaynnaException;
 import varasto.Tuote;
@@ -26,7 +25,7 @@ import varasto.Varastonkorjaus;
  */
 public class VarastonhallintaGUIController implements Initializable {
 
-    private String varastonNimi = "Kuopio";
+    private String varastonNimi;
 
     @FXML
     private Label varastonNimiPalkissa = new Label();
@@ -35,7 +34,26 @@ public class VarastonhallintaGUIController implements Initializable {
     @FXML
     private ListChooser<Tuote> tuotteet;
     @FXML
-    private TextArea valiaikainenTieto;
+    private TextField nimi;
+
+    @FXML
+    private TextField tuotenumero;
+
+    @FXML
+    private TextField arvo;
+
+    @FXML
+    private TextField kapasi;
+
+    @FXML
+    private TextField kollit;
+
+    @FXML
+    private TextField status;
+
+    @FXML
+    private StringGrid<Varastonkorjaus> korjaukset;
+
     @FXML
     private void handleHakeminen() {
         Dialogs.showMessageDialog("Ei osata hakea.");
@@ -50,30 +68,13 @@ public class VarastonhallintaGUIController implements Initializable {
 
 
     @FXML
-    boolean handleAvaa() {
-        ModalController.showModal(
-                VarastonhallintaGUIController.class
-                        .getResource("fxml-tiedostot/NimenKyselyGUIView.fxml"),
-                "Avaa", null, "");
-        this.varastonNimiPalkissa.setText("Varasto: Kuopio");
-        return true;
-    }
-
-
-    @FXML
     private void handleLisaaTuote() {
-        ModalController
-                .showModal(
-                        VarastonhallintaGUIController.class.getResource(
-                                "fxml-tiedostot/LisaaGUIView.fxml"),
-                        "Lisää", null, "");
         uusiTuote();
     }
 
 
     @FXML
     void handleLopeta() {
-        Dialogs.showMessageDialog("Tallennetaan ja lopetetaan...");
         Platform.exit();
     }
 
@@ -85,7 +86,7 @@ public class VarastonhallintaGUIController implements Initializable {
 
 
     @FXML
-    private void handleMuokkaa() {     
+    private void handleMuokkaa() {
         ModalController.showModal(
                 VarastonhallintaGUIController.class
                         .getResource("fxml-tiedostot/MuokkausGUIView.fxml"),
@@ -95,10 +96,7 @@ public class VarastonhallintaGUIController implements Initializable {
 
     @FXML
     private void handlePoistaTuote() {
-        ModalController.showModal(
-                VarastonhallintaGUIController.class
-                        .getResource("fxml-tiedostot/PoistaGUIView.fxml"),
-                "Poista", null, "");
+        poistaTuote();
     }
 
 
@@ -125,10 +123,6 @@ public class VarastonhallintaGUIController implements Initializable {
 
     @FXML
     private void handleVarastonkorjaus() {
-        ModalController.showModal(
-                VarastonhallintaGUIController.class.getResource(
-                        "fxml-tiedostot/VarastonkorjausGUIView.fxml"),
-                "Varastonkorjaus", null, "");
         uusiKorjaus();
 
     }
@@ -137,9 +131,84 @@ public class VarastonhallintaGUIController implements Initializable {
 
     private Varasto varasto;
 
+    /**
+     * Avaa varaston
+     * @return true jos käyttäjä asetti nimen
+     */
+    public boolean avaa() {
+        String varastonNimi2 = VarastonNimiController.kysyNimi(null,
+                varastonNimi);
+        if (varastonNimi2 == null) {
+            return false;
+        }
+        tyhjaa();
+        lueTiedosto(varastonNimi2);
+        
+        return true;
+    }
+    
+    
+    /**
+     * Poistaa tuotteen varastosta
+     */
+    public void poistaTuote() {
+        if(varasto.getTuotteita() < 1){
+            return;
+        }
+        String vastaus = ModalController.showModal(
+                VarastonhallintaGUIController.class
+                        .getResource("fxml-tiedostot/PoistaGUIView.fxml"),
+                "Poista", null, "");
+        
+        if(vastaus == "ok") {
+            Tuote tuote = tuotteet.getSelectedObject();
+            varasto.poistaTuote(tuote);
+            tallenna(varastonNimi);
+            alustaLista();
+        }
+        
+    }
+    
+    
+    /**
+     * Tyhjentää korjaukset ja tuotteen tiedot
+     */
+    public void tyhjaa(){
+        korjaukset.clear();
+        nimi.clear();
+        kapasi.clear();
+        kollit.clear();
+        tuotenumero.clear();
+        arvo.clear();
+        status.clear();
+    }
+
+
+    private void lueTiedosto(String nimi2) {
+        varastonNimi = nimi2;
+        varasto.pyyhi();
+
+        varasto.lue(varastonNimi);
+        alustaLista();
+
+    }
+
+
+    private void tallenna(String uudenVarastonNimi) {
+        varasto.tallenna(uudenVarastonNimi);
+    }
+
+
     private void uusiTuote() {
+        String tiedot = ModalController
+                .showModal(
+                        VarastonhallintaGUIController.class.getResource(
+                                "fxml-tiedostot/LisaaGUIView.fxml"),
+                        "Lisää", null, "");
+        if(tiedot.contentEquals("")) return;
+        StringBuilder vastaus = new StringBuilder(tiedot);
         Tuote tuote = new Tuote();
-        tuote.aseta();
+        tuote.aseta(Mjonot.erota(vastaus,'|').trim(), Mjonot.erotaEx(vastaus, '|', 0), Mjonot.erotaEx(vastaus,'|', 0), vastaus.toString().trim());
         try {
             varasto.lisaa(tuote);
         } catch (TaynnaException e) {
@@ -147,19 +216,28 @@ public class VarastonhallintaGUIController implements Initializable {
             return;
         }
         alustaLista();
+        tallenna(varastonNimi);
     }
 
 
     private void uusiKorjaus() {
+        String tiedot = ModalController
+                .showModal(
+                        VarastonhallintaGUIController.class.getResource(
+                                "fxml-tiedostot/VarastonkorjausGUIView.fxml"),
+                        "Varastonkorjaus", null, "");
+        StringBuilder vastaus = new StringBuilder(tiedot);
         Tuote tuote = tuotteet.getSelectedObject();
-        
-        if(tuote == null) return;
+
+        if (tuote == null)
+            return;
 
         Varastonkorjaus korjaus = new Varastonkorjaus();
-        korjaus.alusta(tuote.getTuotenumero(), -2, "Varastonkorjaus");
+        korjaus.alusta(tuote.getTuotenumero(), Mjonot.erota(vastaus), Integer.valueOf(vastaus.toString()));
 
         varasto.lisaaKorjaus(korjaus);
         naytaTuote();
+        tallenna(varastonNimi);
     }
 
 
@@ -168,7 +246,7 @@ public class VarastonhallintaGUIController implements Initializable {
 
         for (int i = 0; i < varasto.getTuotteita(); i++) {
             Tuote tuote = varasto.annaTuote(i);
-            tuotteet.add(tuote.getNimi() + tuote.getTuotenumero(), tuote);
+            tuotteet.add(tuote.getNimi(), tuote);
         }
     }
 
@@ -191,16 +269,25 @@ public class VarastonhallintaGUIController implements Initializable {
         if (tuote == null)
             return;
 
-        valiaikainenTieto.setText("");
-        PrintStream os = TextAreaOutputStream
-                .getTextPrintStream(valiaikainenTieto);
-        tuote.tulostaTiedot(os);
+        nimi.setText(tuote.getNimi());
+        tuotenumero.setText(String.valueOf(tuote.getTuotenumero()));
+        arvo.setText(String.valueOf(tuote.getVarastoarvo()));
+        kapasi.setText(String.valueOf(tuote.getVarastokapasiteetti()));
+        kollit.setText(String.valueOf(tuote.getKollit()));
+        status.setText(tuote.getStatus());
 
+        korjaukset.clear();
         if (varasto.getVarastonkorjauksia() > 0) {
             for (int i = 0; i < varasto.getVarastonkorjauksia(); i++) {
                 Varastonkorjaus korjaus = varasto.annaKorjaus(i);
                 if (tuote.getTuotenumero() == korjaus.getTuotenumero()) {
-                    korjaus.tulosta(os);
+                    String[] rivi = new String[] { korjaus.getPaiva(),
+                            String.valueOf(korjaus.getTuotenumero()),
+                            korjaus.getTapahtuma(),
+                            String.valueOf(korjaus.getMuutos()) };
+
+                    korjaukset.add(korjaus, rivi);
+
                 }
             }
         }

@@ -33,6 +33,7 @@ public class Tuote {
     // <-------------------------------------------------------------------------------------------------------------->
     // ALAPUOLELLA GETTERIT
 
+
     /**
      * @return tuotteen nimen
      */
@@ -79,6 +80,14 @@ public class Tuote {
     public String getStatus() {
         return this.status;
     }
+    
+    
+    /**
+     * @return seuraavanTuotenumeron
+     */
+    public int getSeuraavaTuoteNumero() {
+        return seuraavaTuoteNumero;
+    }
 
     // TÄMÄN YLÄPUOLELLA VAIN GETTERIT JA ATTRIBUUTIT
     // <-------------------------------------------------------------------------------------------------------------->
@@ -92,9 +101,6 @@ public class Tuote {
         Tuote tuote = new Tuote();
         Tuote tuote2 = new Tuote();
 
-        tuote.aseta();
-        tuote2.aseta();
-
         tuote.tulostaTiedot(System.out);
         tuote2.tulostaTiedot(System.out);
 
@@ -106,11 +112,11 @@ public class Tuote {
      * @param os printstreami 
      */
     public void tulostaTiedot(PrintStream os) {
-        os.println("Nimi: " + nimi + "\n" + "Tuotenumero: "
-                + tuotenumero + "\n" + "Varastoarvo: " + varastoarvo + "\n"
-                + "Varastokapasiteetti: " + varastokapasiteetti + "\n"
-                + "Kollien määrä: " + kollit + "\n" + "Status: " + status
-                + "\n");
+        os.println(nimi + "|" + 
+                + tuotenumero + "|" + varastoarvo + "|"
+                + varastokapasiteetti + "|"
+                + kollit + "|" + status
+                + "|");
 
     }
     
@@ -126,6 +132,10 @@ public class Tuote {
 
     /**
      * Asettaa tuotteelle tiedot
+     * @param ehdokasNimi tuotteen nimi jota tarjotaan
+     * @param kapasi tarjottavan tuotteen kapasiteetti varastossa
+     * @param ehdokasKollit tuotteen kollit
+     * @param ehdokasStatus tuotteen status
      * @example
      * <pre name="test">
      * Tuote sanky = new Tuote();
@@ -138,29 +148,32 @@ public class Tuote {
      * sanky2.getTuotenumero() === sanky.getTuotenumero() + 1;
      * </pre>
      */
-    public void aseta() {
-        this.tuotenumero = seuraavaTuoteNumero;
+    public void aseta(String ehdokasNimi, int kapasi, int ehdokasKollit, String ehdokasStatus) {
+
+        oikeellisuusTarkistus(ehdokasNimi, seuraavaTuoteNumero, 0, kapasi, ehdokasKollit, ehdokasStatus);
         seuraavaTuoteNumero++;
 
-        oikeellisuusTarkistus("Patja", "Aktiivinen", 22, 50, 2);
     }
 
 
     /**
      * Täyttää tiedot jos tiedot menevät läpi oikeellisuustarkastuksesta
+     * @param tuotenumero 
      */
-    private void taytaTiedot(String ehdokasNimi, String ehdokasStatus, int ehdokasVarastoarvo, int ehdokasVarastokapasiteetti, int ehdokasKollit) {
+    private void taytaTiedot(String ehdokasNimi, String ehdokasStatus, int ehdokasVarastoarvo, int ehdokasVarastokapasiteetti, int ehdokasKollit, int ehdokasTuotenumero) {
         nimi = ehdokasNimi;
         varastoarvo = ehdokasVarastoarvo;
         varastokapasiteetti = ehdokasVarastokapasiteetti;
         kollit = ehdokasKollit;
         status = ehdokasStatus;
+        tuotenumero = ehdokasTuotenumero;
     }
 
 
     /**
      * Tekee oikeellisuustarkastuksen
      * @param ehdokasNimi testattava nimi
+     * @param ehdokasTuotenumero tuotenumero
      * @param ehdokasStatus testattava status
      * @param ehdokasVarastoarvo testattava varastoarvo
      * @param ehdokasVarastokapasiteetti testattava varastokapasiteetti
@@ -188,9 +201,9 @@ public class Tuote {
      *  sohva.getStatus() === "Poistunut";
      * </pre>
      */
-    public void oikeellisuusTarkistus(String ehdokasNimi, String ehdokasStatus,
+    public void oikeellisuusTarkistus(String ehdokasNimi, int ehdokasTuotenumero,
             int ehdokasVarastoarvo, int ehdokasVarastokapasiteetti,
-            int ehdokasKollit) {
+            int ehdokasKollit, String ehdokasStatus) {
 
         String[] merkkijonot = { ehdokasNimi, ehdokasStatus };
         int[] luvut = { ehdokasVarastoarvo, ehdokasVarastokapasiteetti,
@@ -208,11 +221,11 @@ public class Tuote {
             }
         }
         
-        if(ehdokasStatus != "Aktiivinen" && ehdokasStatus != "Poistunut") {
-            return;
+        if(ehdokasStatus.contains("Aktiivinen") || ehdokasStatus.contains("Poistunut")) {
+            taytaTiedot(ehdokasNimi, ehdokasStatus, ehdokasVarastoarvo,
+                    ehdokasVarastokapasiteetti, ehdokasKollit, ehdokasTuotenumero);
         }
-        taytaTiedot(ehdokasNimi, ehdokasStatus, ehdokasVarastoarvo,
-                ehdokasVarastokapasiteetti, ehdokasKollit);
+
     }
 
 }
