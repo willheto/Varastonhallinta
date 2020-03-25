@@ -6,17 +6,15 @@ package varasto;
 import java.io.PrintStream;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 21.03.2020
  * Tuote-luokka
  * - Tietää tuotteiden tiedot ja osaa tarkastaa, ettei väärään kenttään syötetä 
  * väärää tietoa. (esim. kirjaimia varastoaarvoon)  - TEHTY
- * - osaa muuttaa palkeilla paloitellut merkkijonot  - TODO
+ * - osaa muuttaa palkeilla paloitellut merkkijonot  - TEHTY
  * erillisiksi tiedoiksi(1|sohva sopiva|...) -> 1, sohva sopiva, ...                          
  * - osaa antaa merkkijonona tietyn kentän tiedot   - TEHTY  
- * - osaa laittaa merkkijono kentän tiedoksi       - TEHTY
- * - osaa kommunikoida varastonkorjauksen kanssa,   - TODO
- *  kun tuotteen tilaksi merkataan poistunut        
+ * - osaa laittaa merkkijono kentän tiedoksi       - TEHTY     
  */
 public class Tuote {
 
@@ -172,7 +170,7 @@ public class Tuote {
      * @param ehdokasStatus tuotteen status
      * @param nolla kuormituksen apumuuttuja
      */
-    public void aseta(String ehdokasNimi, int kapasi, int ehdokasKollit, String ehdokasStatus, int nolla) {
+    public void aseta(String ehdokasNimi, int kapasi, int ehdokasKollit, String ehdokasStatus, @SuppressWarnings("unused") int nolla) {
 
         oikeellisuusTarkistus(ehdokasNimi, this.tuotenumero, this.varastoarvo, kapasi, ehdokasKollit, ehdokasStatus);
 

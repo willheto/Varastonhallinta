@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 23 Mar 2020
  * Varastonkorjauksen tietojen syöttö
  */

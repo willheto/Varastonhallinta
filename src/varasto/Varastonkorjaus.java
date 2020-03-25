@@ -1,12 +1,11 @@
 package varasto;
 
 import java.io.PrintStream;
-
-//import java.time.LocalDate;
-//import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 21.03.2020
  * Varastonkorjaus-luokka
  */
@@ -119,14 +118,14 @@ public class Varastonkorjaus {
      * </pre>
      */
     public void alusta(int tuotenumero2, String tapahtuma2, int muutos2) {        
-        
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        //LocalDate paivamaara = LocalDate.now();
+              
+        SimpleDateFormat formatter= new SimpleDateFormat("dd.MM.yyyy '-' HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
 
         this.tuotenumero = tuotenumero2;
         this.muutos = muutos2;
         this.tapahtuma = tapahtuma2;
-        this.paiva = "29.02.2020";
+        this.paiva = formatter.format(date);
         this.vkid = seuraavaVkid;
 
         seuraavaVkid++;

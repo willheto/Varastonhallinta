@@ -1,6 +1,5 @@
 .keskim {
 	-fx-background-color: #83a2c9;
-
 }
 .oikea {
 	-fx-background-color: #83a2c9;
@@ -12,18 +11,16 @@
 }
 
 .valiaikainen {
-		-fx-border-color: black;
+	-fx-border-color: black;
 }
 
 .tuotteet {
 	-fx-border-color: black;
-
 }
 
 .varastonkorjaukset {
 	-fx-border-color: black;
 	-fx-background-color: #6f9dcb;
-
 }
 
 .info-palkki {
@@ -42,15 +39,15 @@
 }
 
 .ala-palkki{
-		-fx-border-color: black;
-		-fx-border-width: 1px 0px 0px 0px; 
-		-fx-background-color: #6f9dcb;
+	-fx-border-color: black;
+	-fx-border-width: 1.0px 0.0px 0.0px 0.0px; 		
+	-fx-background-color: #6f9dcb;
 }
 
 .menu {
-		-fx-border-color: black;
-		-fx-border-width: 0px;
-		-fx-background-color: #6f9dcb;
+	-fx-border-color: black;
+	-fx-border-width: 0.0px;
+	-fx-background-color: #6f9dcb;
 }
 
 .varastonkorjausNappi {
@@ -76,12 +73,12 @@
 }
 
 .ala-palkki-modaaliset {
-		-fx-border-color: black;
-		-fx-background-color: #6f9dcb;
+	-fx-border-color: black;
+	-fx-background-color: #6f9dcb;
 }
 
 .alin-palkki {
-		-fx-border-color: black;
-		-fx-border-width: 1px 0px 0px 0px; 
-		-fx-background-color: #6f9dcb;
+	-fx-border-color: black;
+	-fx-border-width: 1.0px 0.0px 0.0px 0.0px; 
+	-fx-background-color: #6f9dcb;
 }

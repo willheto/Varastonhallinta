@@ -13,11 +13,11 @@ import java.util.Scanner;
 import fi.jyu.mit.ohj2.Mjonot;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 21.03.2020
  * Tuotteet-luokka
  * - osaa lisätä ja poistaa tuotteita
- * - lukee ja kirjoittaa tietyn tuotteen tiedostoon käyttämällä avustajia -TODO
+ * - lukee ja kirjoittaa tietyn tuotteen tiedostoon käyttämällä avustajia -TEHTY
  * - osaa etsiä ja lajitella 
  */
 public class Tuotteet {
@@ -100,8 +100,15 @@ public class Tuotteet {
      * @throws TaynnaException jos tuotteita ollaan laittamassa liikaa
      */
     public void lisaa(Tuote tuote) throws TaynnaException {
-        if (lukumaara >= MAX_TUOTTEET)
-            throw new TaynnaException("Liikaa tuotteita!");
+        if (lukumaara >= MAX_TUOTTEET) {
+            Tuote[] uusi = new Tuote[lukumaara + 5];
+
+            for (int i = 0; i < tuotteetTaulukossa.length; i++) {
+                uusi[i] = tuotteetTaulukossa[i];
+            }
+
+            tuotteetTaulukossa = uusi;
+        }
 
         tuotteetTaulukossa[lukumaara] = tuote;
         lukumaara++;

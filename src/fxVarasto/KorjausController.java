@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 23 Mar 2020
  * Varastonkorjauksen tietojen syöttö
  */

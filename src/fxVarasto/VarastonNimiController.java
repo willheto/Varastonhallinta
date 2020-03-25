@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 23 Mar 2020
  * Varaston nimen kysely
  */
@@ -34,7 +34,9 @@ public class VarastonNimiController
 
     @FXML
     private void handleDefaultOK() {
-        vastaus = textVastaus.getText();
+        String eiRiipuKirjainKoosta = textVastaus.getText().toLowerCase();
+        vastaus = eiRiipuKirjainKoosta.substring(0, 1).toUpperCase()
+                + eiRiipuKirjainKoosta.substring(1);
         ModalController.closeStage(textVastaus);
     }
 

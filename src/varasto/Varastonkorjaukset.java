@@ -11,7 +11,7 @@ import java.util.Scanner;
 import fi.jyu.mit.ohj2.Mjonot;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 21.03.2020
  * Varastonkorjaukset-luokka, joka pitää huolta kaikista varastonkorjauksista.
  */

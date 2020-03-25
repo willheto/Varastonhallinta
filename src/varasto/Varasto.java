@@ -2,7 +2,7 @@ package varasto;
 
 /**
  * Varasto-luokka
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 21.03.2020
  *
  */

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxVarasto.TulostusController">
+   <children>
+      <ImageView fitHeight="724.0" fitWidth="826.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ikonit/tulostus.png" />
+         </image>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Label text="Varaston nimi" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Tulostuspvm" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="190.0" right="5.0" top="5.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Klo" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="128.0" right="5.0" top="30.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Tuotteiden lukumäärä" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="10.0" right="2.0" top="30.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Varasto, tuotteet" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+         <StackPane.margin>
+            <Insets top="110.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="nimi" text="Varaston nimi" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="170.0" right="5.0" top="5.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lukumaara" text="Varaston nimi" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="170.0" right="5.0" top="30.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="klo" text="Tulostuspvm" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="5.0" right="82.0" top="30.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="pvm" text="Tulostuspvm" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="5.0" left="5.0" right="82.0" top="5.0" />
+         </StackPane.margin>
+      </Label>
+   </children>
+</StackPane>

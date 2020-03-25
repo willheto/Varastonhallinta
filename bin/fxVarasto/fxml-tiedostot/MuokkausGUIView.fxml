@@ -26,7 +26,6 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="virhe" text="Label" textFill="RED" />
          </children>
       </StackPane>
    </top>

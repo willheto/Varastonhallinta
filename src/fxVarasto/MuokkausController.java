@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 23 Mar 2020
  * Tuotteen tietojen syöttö
  */
@@ -20,42 +20,46 @@ public class MuokkausController implements ModalControllerInterface<String> {
 
     @FXML
     private TextField kollit;
-    
+
     @FXML
     private Label virhe;
 
     @FXML
     private ComboBoxChooser<String> status;
-    
-    private String vastaus = "";
 
+    private String vastaus = "";
 
     @FXML
     private void handleDefaultOK() {
-        oikeellisuusTarkistus();        
+        oikeellisuusTarkistus();
     }
-    
+
+
     /**
      * Tarkistaa että tuotteen tiedot ovat hyväksyttäviä
      */
     private void oikeellisuusTarkistus() {
+
         String[] merkkijonot = { nimi.getText() };
-        
-        if(nimi.getText().equals("") || kapasi.getText().equals("") || kollit.getText().equals("")) {
+
+        if (nimi.getText().equals("") || kapasi.getText().equals("")
+                || kollit.getText().equals("")) {
             virhe.setText("Täytä kaikki kentät!");
             return;
         }
 
         try {
-            int[] luvut = { Integer.valueOf(kapasi.getText()), Integer.valueOf(kollit.getText())};
-            
+            int[] luvut = { Integer.valueOf(kapasi.getText()),
+                    Integer.valueOf(kollit.getText()) };
+
             for (int i = 0; i < luvut.length; i++) {
                 if (luvut[i] < 0) {
-                    virhe.setText("Kapasiteetti tai kollien määrä ei voi olla negatiivinen!");
+                    virhe.setText(
+                            "Kapasiteetti tai kollien määrä ei voi olla negatiivinen!");
                     return;
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             virhe.setText("Kapasiteettiin ja kolleihin vain numeroita!");
             return;
         }
@@ -66,8 +70,9 @@ public class MuokkausController implements ModalControllerInterface<String> {
                 return;
             }
         }
-        
-        vastaus = (nimi.getText() + "|" + kapasi.getText() + "|" + kollit.getText() + "|" + status.getSelectedText());
+
+        vastaus = (nimi.getText() + "|" + kapasi.getText() + "|"
+                + kollit.getText() + "|" + status.getSelectedText());
         ModalController.closeStage(nimi);
 
     }

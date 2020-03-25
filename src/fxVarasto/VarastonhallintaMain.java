@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 
 /**
- * @author henri
+ * @author henri willman, henri.t.willman@student.jyu.fi
  * @version 21.03.2020
  * Pääohjelma varastonhallinnalle
  */
