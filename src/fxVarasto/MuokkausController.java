@@ -1,6 +1,7 @@
 package fxVarasto;
 
 import fi.jyu.mit.fxgui.*;
+import fi.jyu.mit.ohj2.Mjonot;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -29,6 +30,10 @@ public class MuokkausController implements ModalControllerInterface<String> {
 
     private String vastaus = "";
 
+    
+    /**
+     * Mitä tapahtuu kun hyväksytään muokkaus, eli siirrytään oikeellisuustarkistukseen.
+     */
     @FXML
     private void handleDefaultOK() {
         oikeellisuusTarkistus();
@@ -78,6 +83,9 @@ public class MuokkausController implements ModalControllerInterface<String> {
     }
 
 
+    /**
+     * Mitä tapahtuu kun ei hyväksytäkkään muokkausta, eli suljetaan ikkuna.
+     */
     @FXML
     private void handleDefaultCancel() {
         ModalController.closeStage(nimi);
@@ -85,15 +93,24 @@ public class MuokkausController implements ModalControllerInterface<String> {
     }
 
 
+    /**
+     * Palauttaa tehdyn muutoksen
+     */
     @Override
     public String getResult() {
         return vastaus;
     }
 
 
+    /**
+     * Ei käytössä
+     */
     @Override
     public void setDefault(String oletus) {
-        //
+        StringBuilder tuotteenTiedot = new StringBuilder(oletus);
+        this.nimi.setText(Mjonot.erota(tuotteenTiedot));
+        this.kapasi.setText(Mjonot.erota(tuotteenTiedot));
+        this.kollit.setText(Mjonot.erota(tuotteenTiedot));
     }
 
 

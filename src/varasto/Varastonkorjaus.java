@@ -103,15 +103,13 @@ public class Varastonkorjaus {
      * <pre name="test">
      * Varastonkorjaus korjaus = new Varastonkorjaus();
      * Varastonkorjaus korjaus2 = new Varastonkorjaus();
-     * korjaus.alusta(1, 2, "Varastonkorjaus");
+     * korjaus.alusta(1,"Varastonkorjaus",2);
      * korjaus.getTuotenumero() === 1;
-     * korjaus.getPaiva() === "29.02.2020";
      * korjaus.getMuutos() === 2;
      * korjaus.getTapahtuma() === "Varastonkorjaus";
      * korjaus.getVkid() === 1;
-     * korjaus2.alusta(1, 2, "Varastonkorjaus");
+     * korjaus2.alusta(1,"Varastonkorjaus",2);
      * korjaus2.getTuotenumero() === 1;
-     * korjaus2.getPaiva() === "29.02.2020";
      * korjaus2.getMuutos() === 2;
      * korjaus2.getTapahtuma() === "Varastonkorjaus";
      * korjaus2.getVkid() === 2;

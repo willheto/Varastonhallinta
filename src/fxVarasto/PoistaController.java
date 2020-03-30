@@ -6,16 +6,20 @@ import javafx.scene.control.Button;
 
 /**
  * @author henri willman, henri.t.willman@student.jyu.fi
- * @version 23 Mar 2020
+ * @version 30 Mar 2020
  * Varastonkorjauksen tietojen syöttö
  */
 public class PoistaController implements ModalControllerInterface<String> {
 
-    private String vastaus = null;
+    private String vastaus = "";
     
     @FXML
     private Button nappi;
 
+    
+    /**
+     * Mitä tapahtuu kun hyväksytään poisto.
+     */
     @FXML
     private void handleDefaultOK() {
         vastaus = "ok";
@@ -23,6 +27,9 @@ public class PoistaController implements ModalControllerInterface<String> {
     }
 
 
+    /**
+     * Mitä tapahtuu kun perutaan poisto
+     */
     @FXML
     private void handleDefaultCancel() {
         vastaus = "cancel";
@@ -30,12 +37,18 @@ public class PoistaController implements ModalControllerInterface<String> {
     }
 
 
+    /**
+     * Palautetaan poiston tulos, eli kyllä vai ei
+     */
     @Override
     public String getResult() {
         return vastaus.toString();
     }
 
 
+    /**
+     * Ei käytössä
+     */
     @Override
     public void setDefault(String oletus) {
         //

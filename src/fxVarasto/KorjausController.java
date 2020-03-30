@@ -7,8 +7,8 @@ import javafx.scene.control.TextField;
 
 /**
  * @author henri willman, henri.t.willman@student.jyu.fi
- * @version 23 Mar 2020
- * Varastonkorjauksen tietojen syöttö
+ * @version 30 Mar 2020
+ * Varastonkorjauksen tietojen syöttö luokka
  */
 public class KorjausController implements ModalControllerInterface<String> {
 
@@ -22,31 +22,35 @@ public class KorjausController implements ModalControllerInterface<String> {
     private TextField maara;
     private String vastaus = "";
 
+    
+    /**
+     * Mitä tapahtuu kun hyväksytään korjaus, eli siirrytään oikeellisuustarkistukseen.
+     */
     @FXML
     private void handleDefaultOK() {
         oikeellisuusTarkistus();
     }
+    
 
-
+    /**
+     * Mitä tapahtuu kun ei hyväksytäkkään korjausta, eli suljetaan ikkuna.
+     */
     @FXML
     private void handleDefaultCancel() {
         ModalController.closeStage(selitys);
     }
 
 
+    /**
+     * Palauttaa tehdyn muutoksen määrän
+     */
     @Override
     public String getResult() {
         return vastaus.toString();
     }
 
 
-    @Override
-    public void setDefault(String oletus) {
-        //
-    }
-
-
-    /*
+    /**
      * Tarkistaa, että määrään on sijoitettu luku
      */
     private void oikeellisuusTarkistus() {
@@ -66,6 +70,15 @@ public class KorjausController implements ModalControllerInterface<String> {
      */
     @Override
     public void handleShown() {
+        //
+    }
+
+    
+    /**
+     * Ei käytössä
+     */
+    @Override
+    public void setDefault(String arg0) {
         //
     }
 

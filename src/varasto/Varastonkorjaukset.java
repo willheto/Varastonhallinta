@@ -59,8 +59,8 @@ public class Varastonkorjaukset {
      * varastonkorjaukset.getLukumaara() === 0;
      * Varastonkorjaus korjaus = new Varastonkorjaus();
      * Varastonkorjaus korjaus2 = new Varastonkorjaus();
-     * korjaus.alusta(1001, 2, "Varastonkorjaus");
-     * korjaus2.alusta(1000, 3, "Varastonkorjaus");
+     * korjaus.alusta(1001, "Varastonkorjaus",2);
+     * korjaus2.alusta(1000,  "Varastonkorjaus",2);
      * varastonkorjaukset.lisaa(korjaus);
      * varastonkorjaukset.lisaa(korjaus2);
      * varastonkorjaukset.getLukumaara() === 2;

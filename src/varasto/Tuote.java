@@ -124,7 +124,6 @@ public class Tuote {
                 + varastokapasiteetti + "|"
                 + kollit + "|" + status
                 + "|");
-
     }
     
     
@@ -145,12 +144,12 @@ public class Tuote {
      * @param ehdokasStatus tuotteen status
      * @example
      * <pre name="test">
-     * Tuote sanky = new Tuote();
+     * Tuote sanky = new Tuote(); //Tuotenumeron vaihtuvuuden testaus
      * Tuote sanky2 = new Tuote();
      * Tuote sanky3 = new Tuote();
-     * sanky.aseta();
-     * sanky2.aseta();
-     * sanky3.aseta();
+     * sanky.aseta("Patja", 2, 2, "Aktiivinen");
+     * sanky2.aseta("Patja", 2, 2, "Aktiivinen");
+     * sanky3.aseta("Patja", 2, 2, "Aktiivinen");
      * sanky3.getTuotenumero() === sanky2.getTuotenumero() + 1;
      * sanky2.getTuotenumero() === sanky.getTuotenumero() + 1;
      * </pre>
@@ -202,24 +201,38 @@ public class Tuote {
      * @example
      * <pre name="test">
      *  Tuote sohva = new Tuote();
-     *  sohva.oikeellisuusTarkistus("Patja", "Aktiivinen", 22, 50, 2);   
-     *  sohva.getNimi() === "Patja";
-     *  sohva.getVarastoarvo() === 22;
-     *  sohva.getVarastokapasiteetti() === 50;
+     *  sohva.aseta("Sohva", 2, 2, "Aktiivinen"); //Tässä testataan tuotteen lisäämistä ja oikeellisuustarkistuksen toimivuutta, pitää mennä läpi
+     *  sohva.getNimi() === "Sohva";
+     *  sohva.getVarastoarvo() === 0;
+     *  sohva.getVarastokapasiteetti() === 2;
      *  sohva.getKollit() === 2;
      *  sohva.getStatus() === "Aktiivinen";
-     *  sohva.oikeellisuusTarkistus("", "Aktiivinen", 22, 50, 2);   
+     *  sohva.aseta("Patja", 2, 2, "Poistunut"); //Ja vielä tietojen muuttamisen testausta...
      *  sohva.getNimi() === "Patja";
-     *  sohva.getVarastoarvo() === 22;
-     *  sohva.getVarastokapasiteetti() === 50;
+     *  sohva.getVarastoarvo() === 0;
+     *  sohva.getVarastokapasiteetti() === 2;
      *  sohva.getKollit() === 2;
-     *  sohva.getStatus() === "Aktiivinen";
-     *  sohva.oikeellisuusTarkistus("SOHVA", "Poistunut", 232, 560, 24);   
-     *  sohva.getNimi() === "SOHVA";
-     *  sohva.getVarastoarvo() === 232;
-     *  sohva.getVarastokapasiteetti() === 560;
-     *  sohva.getKollit() === 24;
      *  sohva.getStatus() === "Poistunut";
+     *  sohva.aseta("Patja", 2, 2, "ei olemassa"); //Tässä testataan oikeellisuustarkistuksen toimivuutta, tällainen ei saa mennä läpi
+     *  sohva.getNimi() === "Patja";
+     *  sohva.getVarastoarvo() === 0;
+     *  sohva.getVarastokapasiteetti() === 2;
+     *  sohva.getKollit() === 2;
+     *  sohva.getStatus() === "Poistunut";
+     *  sohva.aseta("Patja", -2, 2, "Aktiivinen"); //Lisää testausta aikaisempaa, tämäkään ei saa mennä läpi
+     *  sohva.getNimi() === "Patja";
+     *  sohva.getVarastoarvo() === 0;
+     *  sohva.getVarastokapasiteetti() === 2;
+     *  sohva.getKollit() === 2;
+     *  sohva.getStatus() === "Poistunut";
+     *  sohva.muutaVarastoarvoa(-50); //Vielä varastoarvon muutoksen testausta
+     *  sohva.getVarastoarvo() === -50;
+     *  sohva.muutaVarastoarvoa(50);
+     *  sohva.getVarastoarvo() === 0;
+     *  sohva.muutaVarastoarvoa(0);
+     *  sohva.getVarastoarvo() === 0;
+     *  sohva.muutaVarastoarvoa(234);
+     *  sohva.getVarastoarvo() === 234;
      * </pre>
      */
     public void oikeellisuusTarkistus(String ehdokasNimi, int ehdokasTuotenumero,

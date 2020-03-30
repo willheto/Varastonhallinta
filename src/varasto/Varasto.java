@@ -114,17 +114,25 @@ public class Varasto {
      * Tuote tyyny = new Tuote();
      * Tuote tyyny2 = new Tuote();
      * Tuote tyyny3 = new Tuote();
-     * tyyny.aseta();
-     * tyyny2.aseta();
-     * tyyny3.aseta();
+     * tyyny.aseta("Tyyny",2,2,"Aktiivinen");
+     * tyyny2.aseta("Tyyny",2,2,"Aktiivinen");
+     * tyyny3.aseta("Tyyny",2,2,"Aktiiinen");
      * varasto.getTuotteita() === 0;
      * varasto.lisaa(tyyny); varasto.getTuotteita() === 1;
      * varasto.lisaa(tyyny2); varasto.getTuotteita() === 2;
-     * varasto.lisaa(tyyny3); varasto.getTuotteita() === 3;
      * varasto.annaTuote(0) === tyyny;
      * varasto.annaTuote(1) === tyyny2;
-     * varasto.annaTuote(2) === tyyny3;
+     * varasto.annaTuote(2) === null;
      * varasto.annaTuote(3) === null;
+     * Varastonkorjaus korjaus = new Varastonkorjaus();
+     * korjaus.alusta(1000, "Varastonkorjaus", 3);
+     * varasto.getVarastonkorjauksia() === 0;
+     * varasto.lisaaKorjaus(korjaus);
+     * varasto.getVarastonkorjauksia() === 0;
+     * Varastonkorjaus korjaus2 = new Varastonkorjaus();
+     * korjaus2.alusta(1, "Varastonkorjaus", 3);
+     * varasto.lisaaKorjaus(korjaus2);
+     * varasto.getVarastonkorjauksia() === 1;
      */
     public void lisaa(Tuote tuote) throws TaynnaException {
         tuotteet.lisaa(tuote);

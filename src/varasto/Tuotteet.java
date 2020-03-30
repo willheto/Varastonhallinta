@@ -186,9 +186,6 @@ public class Tuotteet {
      */
     public void tallenna(String nimi) throws TaynnaException {
 
-        File tiedosto = new File(nimi);
-        if (!tiedosto.exists())
-            tiedosto.mkdir();
         try (PrintStream fo = new PrintStream(
                 new FileOutputStream(nimi + "/tuotteet.dat", false))) {
             try {
@@ -211,6 +208,19 @@ public class Tuotteet {
      * Lukee varaston tuotteet listaan
      */
     public void lue(String varastonNimi) {
+        File tiedosto = new File(varastonNimi);
+        if (!tiedosto.exists()) {
+            tiedosto.mkdir();
+
+            try (PrintStream fo = new PrintStream(
+                    new FileOutputStream("varastot.dat", true))) {
+                fo.println(varastonNimi);
+
+                fo.close();
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }
+        }
 
         try (Scanner fi = new Scanner(new FileInputStream(
                 new File(varastonNimi + "/tuotteet.dat")))) {
@@ -251,12 +261,12 @@ public class Tuotteet {
 
                 }
                 fi2.close();
+            } catch (Exception e) {
+                return;
             }
 
         } catch (FileNotFoundException e) {
-            File tiedosto = new File(varastonNimi);
-            tiedosto.mkdir();
-
+            return;
         }
 
     }

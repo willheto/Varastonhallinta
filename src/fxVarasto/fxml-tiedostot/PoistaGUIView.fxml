@@ -30,7 +30,7 @@
             <Insets left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
          <children>
-            <Label text="Haluatko todella poistaa tuotteen TUOTE &#10;varastosta VARASTO?" textFill="WHITE">
+            <Label prefHeight="34.0" prefWidth="234.0" text="Haluatko todella poistaa tuotteen&#10;varastosta?" textFill="WHITE">
                <StackPane.margin>
                   <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                </StackPane.margin>
@@ -55,7 +55,7 @@
          <children>
             <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultOK" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                <image>
-                  <Image url="@ikonit/f10.png" />
+                  <Image url="@ikonit/ok.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -68,7 +68,7 @@
             </Button>
             <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultCancel" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ikonit/f10.png" />
+                  <Image url="@ikonit/peru.png" />
                </image>
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="140.0" top="5.0" />

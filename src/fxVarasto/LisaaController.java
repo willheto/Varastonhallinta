@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 /**
  * @author henri willman, henri.t.willman@student.jyu.fi
- * @version 23 Mar 2020
+ * @version 30 Mar 2020
  * Tuotteen tietojen syöttö
  */
 public class LisaaController implements ModalControllerInterface<String> {
@@ -30,10 +30,14 @@ public class LisaaController implements ModalControllerInterface<String> {
     private String vastaus = "";
 
 
+    /**
+     * Mitä tapahtuu kun hyväksytään lisäys, eli siirrytään oikeellisuustarkistukseen.
+     */
     @FXML
     private void handleDefaultOK() {
         oikeellisuusTarkistus();        
     }
+    
     
     /**
      * Tarkistaa että tuotteen tiedot ovat hyväksyttäviä
@@ -73,19 +77,28 @@ public class LisaaController implements ModalControllerInterface<String> {
     }
 
 
+    /**
+     * Mitä tapahtuu kun ei hyväksytäkkään lisäystä, eli suljetaan ikkuna.
+     */
     @FXML
     private void handleDefaultCancel() {
         ModalController.closeStage(nimi);
         return;
     }
 
-
+    
+    /**
+     * Palauttaa vastauksen
+     */
     @Override
     public String getResult() {
         return vastaus;
     }
 
-
+    
+    /**
+     * Ei käytössä
+     */
     @Override
     public void setDefault(String oletus) {
         //
