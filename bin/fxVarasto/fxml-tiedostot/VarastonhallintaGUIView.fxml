@@ -137,19 +137,6 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin>
                         </Button>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="15.0" layoutY="19.0" onMouseClicked="#handleVarastonkorjaus" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ikonit/tulosta.png" />
-                           </image>
-                           <StackPane.margin>
-                              <Insets left="-137.0" />
-                           </StackPane.margin>
-                        </ImageView>
-                        <Button layoutX="15.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleTulosta" styleClass="varastonkorjausNappi" text="    F7 Tulosta" textFill="WHITE">
-                           <StackPane.margin>
-                              <Insets left="-70.0" />
-                           </StackPane.margin>
-                        </Button>
                      </children>
                   </StackPane>
                </bottom>

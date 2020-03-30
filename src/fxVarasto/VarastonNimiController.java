@@ -2,6 +2,7 @@ package fxVarasto;
 
 import fi.jyu.mit.fxgui.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,6 +16,8 @@ public class VarastonNimiController
 
     @FXML
     private TextField textVastaus;
+    @FXML
+    private Label virhe;
     @FXML
     private ComboBoxChooser<String> varastoLista;
     
@@ -38,14 +41,19 @@ public class VarastonNimiController
      */
     @FXML
     private void handleDefaultOK() {
-        if(varastoLista.getSelectedText() != "Valitse") {
+        if(!varastoLista.getSelectedText().contains("Valitse") && !varastoLista.getSelectedText().contentEquals("")) {
             vastaus = varastoLista.getSelectedText();
             ModalController.closeStage(textVastaus);
+            return;
+        }
+        if(textVastaus.getText().contentEquals("")) {
+            virhe.setText("Syötä varastolle nimi, tai valitse jo olemassa oleva varasto!");
             return;
         }
         String eiRiipuKirjainKoosta = textVastaus.getText().toLowerCase();
         vastaus = eiRiipuKirjainKoosta.substring(0, 1).toUpperCase()
                 + eiRiipuKirjainKoosta.substring(1);
+        
         ModalController.closeStage(textVastaus);
     }
 

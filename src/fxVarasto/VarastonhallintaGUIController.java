@@ -3,6 +3,9 @@ package fxVarasto;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -37,13 +40,13 @@ public class VarastonhallintaGUIController implements Initializable {
 
     @FXML
     private Label varastonNimiPalkissa = new Label();
-    
+
     @FXML
     private TextField haku;
-    
+
     @FXML
     private ListChooser<Tuote> tuotteet;
-    
+
     @FXML
     private TextField nimi;
 
@@ -131,17 +134,28 @@ public class VarastonhallintaGUIController implements Initializable {
      * @return true jos käyttäjä asetti nimen
      */
     public boolean avaa() {
-        
+
+        File varastoTiedosto = new File("Varastot.dat");
         String varastot = "";
-        try (Scanner fi = new Scanner(new FileInputStream(new File("varastot.dat")))) {       
+        try (Scanner fi = new Scanner(new FileInputStream(varastoTiedosto))) {
             while (fi.hasNext()) {
-            varastot += fi.next() + "\n";
+                varastot += fi.next() + "\n";
             }
             fi.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            try {
+                varastoTiedosto.createNewFile();
+
+                try (PrintStream varastoTied = new PrintStream(
+                        new FileOutputStream("varastot.dat", true))) {
+                    varastoTied.println("Valitse");
+                    varastoTied.close();
+                }
+            } catch (IOException e1) {
+                System.err.print("nyt menee ihan pieleen");
+            }
         }
-        
+
         String varastonNimi2 = ModalController.showModal(
                 VarastonhallintaGUIController.class
                         .getResource("fxml-tiedostot/NimenKyselyGUIView.fxml"),
@@ -162,11 +176,12 @@ public class VarastonhallintaGUIController implements Initializable {
      */
     public void muokkaa() {
         Tuote tuote = tuotteet.getSelectedObject();
-        if(tuote == null) return;
-        
-        String oletus = tuotteet.getSelectedObject().getNimi() + " " +
-                tuotteet.getSelectedObject().getVarastokapasiteetti() + " " +
-                tuotteet.getSelectedObject().getKollit();
+        if (tuote == null)
+            return;
+
+        String oletus = tuotteet.getSelectedObject().getNimi() + " "
+                + tuotteet.getSelectedObject().getVarastokapasiteetti() + " "
+                + tuotteet.getSelectedObject().getKollit();
 
         String vastaus = ModalController.showModal(
                 VarastonhallintaGUIController.class
@@ -193,7 +208,7 @@ public class VarastonhallintaGUIController implements Initializable {
         if (varasto.getTuotteita() < 1) {
             return;
         }
-        
+
         String vastaus = ModalController.showModal(
                 VarastonhallintaGUIController.class
                         .getResource("fxml-tiedostot/PoistaGUIView.fxml"),
@@ -265,7 +280,7 @@ public class VarastonhallintaGUIController implements Initializable {
         arvo.clear();
         status.clear();
     }
-    
+
 
     /**
      * Lukee tiedoston tiedot käyttöliittymään
@@ -278,7 +293,7 @@ public class VarastonhallintaGUIController implements Initializable {
         alustaLista();
     }
 
-    
+
     /**
      * Tallentaa tehdyn muutoksen
      */
@@ -313,11 +328,11 @@ public class VarastonhallintaGUIController implements Initializable {
         tallenna(varastonNimi);
     }
 
-    
+
     /**
      * Luo uuden korjauksen varaston tuotteeseen
      */
-    private void uusiKorjaus() {    
+    private void uusiKorjaus() {
         Tuote tuote = tuotteet.getSelectedObject();
 
         if (tuote == null)
@@ -339,7 +354,7 @@ public class VarastonhallintaGUIController implements Initializable {
         naytaTuote();
         tallenna(varastonNimi);
     }
-    
+
 
     /**
      * Alustaa listan, eli hakee tuotteet uudestaan listaan
