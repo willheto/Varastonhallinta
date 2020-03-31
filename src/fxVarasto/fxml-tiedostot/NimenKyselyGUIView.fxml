@@ -90,22 +90,22 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </StackPane.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#handleDefaultOK" styleClass="varastonkorjausNappi" text="    F10 Hyväksy" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+            <Button mnemonicParsing="false" onAction="#handleDefaultOK" styleClass="varastonkorjausNappi" text="    Hyväksy" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </StackPane.margin>
             </Button>
-            <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultCancel" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+            <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleDefaultCancel" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                <image>
                   <Image url="@ikonit/peru.png" />
                </image>
                <StackPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="60.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="140.0" top="5.0" />
                </StackPane.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#handleDefaultCancel" styleClass="varastonkorjausNappi" text="     ESC Peru" textFill="WHITE" StackPane.alignment="CENTER_RIGHT">
+            <Button mnemonicParsing="false" onAction="#handleDefaultCancel" styleClass="varastonkorjausNappi" text="     Peru" textFill="WHITE" StackPane.alignment="CENTER">
                <StackPane.margin>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="105.0" top="5.0" />
                </StackPane.margin>
             </Button>
          </children>

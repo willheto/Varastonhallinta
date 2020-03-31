@@ -110,7 +110,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </StackPane.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#handleDefaultOK" styleClass="varastonkorjausNappi" text="    F10 Hyväksy" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+            <Button mnemonicParsing="false" onAction="#handleDefaultOK" styleClass="varastonkorjausNappi" text="    Hyväksy" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
                <StackPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </StackPane.margin>
@@ -120,12 +120,12 @@
                   <Image url="@ikonit/peru.png" />
                </image>
                <StackPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="65.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                </StackPane.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#handleDefaultCancel" styleClass="varastonkorjausNappi" text="    ESC Peru" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#handleDefaultCancel" prefHeight="25.0" prefWidth="57.0" styleClass="varastonkorjausNappi" text="    Peru" textFill="WHITE">
                <StackPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="59.0" top="5.0" />
                </StackPane.margin>
             </Button>
          </children>

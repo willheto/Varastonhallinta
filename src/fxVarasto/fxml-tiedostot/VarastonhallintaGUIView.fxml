@@ -132,7 +132,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#handleMuokkaa" prefHeight="28.0" prefWidth="94.0" styleClass="varastonkorjausNappi" text="    F8 Muokkaa" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+                        <Button mnemonicParsing="false" onAction="#handleMuokkaa" prefHeight="28.0" prefWidth="94.0" styleClass="varastonkorjausNappi" text="Muokkaa" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
                            <StackPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin>
@@ -239,7 +239,7 @@
             </BorderPane>
             <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="oikea">
                <center>
-                  <StringGrid fx:id="korjaukset" prefHeight="356.0" prefWidth="249.0" rivit="Päivämäärä|Tuote|Tapahtuma|Muutos&#10; &#10;&#10;&#10;" styleClass="varastonkorjaukset" BorderPane.alignment="CENTER">
+                  <StringGrid fx:id="korjaukset" prefHeight="356.0" prefWidth="249.0" rivit="Päivämäärä|Tuotenumero|Tapahtuma|Muutos&#10; &#10;&#10;&#10;" styleClass="varastonkorjaukset" BorderPane.alignment="CENTER">
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
@@ -272,7 +272,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#handleVarastonkorjaus" styleClass="varastonkorjausNappi" text="    F10 Varastonkorjaus" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+                        <Button mnemonicParsing="false" onAction="#handleVarastonkorjaus" styleClass="varastonkorjausNappi" text="    Varastonkorjaus" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
                            <StackPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </StackPane.margin></Button>
@@ -303,8 +303,8 @@
                   <Insets bottom="20.0" left="5.0" right="110.0" top="5.0" />
                </StackPane.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#handleTietoja" prefHeight="66.0" prefWidth="57.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;F1 Ohje" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT" />
-            <Button mnemonicParsing="false" onAction="#avaa" prefHeight="66.0" prefWidth="138.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;Ctrl+F9 Varastonvaihto" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+            <Button mnemonicParsing="false" onAction="#handleTietoja" prefHeight="66.0" prefWidth="57.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;Ohje" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#avaa" prefHeight="66.0" prefWidth="138.0" styleClass="ylapalkin-ikonit" text="&#10;&#10;Varastonvaihto" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets right="62.0" />
                </StackPane.margin>

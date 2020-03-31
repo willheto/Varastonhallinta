@@ -19,7 +19,7 @@
          <StackPane.margin>
             <Insets top="50.0" />
          </StackPane.margin></Label>
-      <Label text="versio 25.03.2020" textFill="WHITE">
+      <Label text="versio 31.03.2020" textFill="WHITE">
          <StackPane.margin>
             <Insets />
          </StackPane.margin>

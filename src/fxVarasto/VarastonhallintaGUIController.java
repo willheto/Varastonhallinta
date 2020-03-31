@@ -392,7 +392,7 @@ public class VarastonhallintaGUIController implements Initializable {
         arvo.setText(String.valueOf(tuote.getVarastoarvo()));
         kapasi.setText(String.valueOf(tuote.getVarastokapasiteetti()));
         kollit.setText(String.valueOf(tuote.getKollit()));
-        status.setText(tuote.getStatus());
+        status.setText(tuote.getStatus());        
 
         korjaukset.clear();
         if (varasto.getVarastonkorjauksia() > 0) {
